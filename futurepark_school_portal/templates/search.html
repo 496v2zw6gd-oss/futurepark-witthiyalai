@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block title %}Student Search | Futurepark{% endblock %}
+{% block content %}
+<section class="panel narrow"><span class="eyebrow">STUDENT DIRECTORY</span><h2>Student Search</h2><p>ค้นหาข้อมูลนักเรียนด้วยชื่อหรือตัวเลขประจำตัว</p>
+<form action="{{ url_for('search') }}" method="get" class="search-form"><input name="q" value="{{ query }}" placeholder="Enter student name or student ID" autofocus><button>Search</button></form>
+{% if searched %}
+  {% if results %}
+    <h3>Search results · {{ results|length }}</h3>
+    {% for s in results %}<article class="student-row"><div><strong>{{ s.full_name }}</strong><small>{{ s.student_id }} · {{ s.classroom }}</small></div><span class="status">{{ s.status }}</span></article>{% endfor %}
+  {% else %}
+    <div class="not-found"><div class="alert">!</div><h2>STUDENT NOT FOUND</h2><h3>ไม่พบข้อมูลนักเรียนในระบบ</h3><p>The requested student record could not be located in the school database.</p><small>SEARCH STATUS: NO MATCHING RECORD</small></div>
+  {% endif %}
+{% endif %}</section>
+{% endblock %}

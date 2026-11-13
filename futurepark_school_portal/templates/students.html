@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}Students | Futurepark{% endblock %}
+{% block content %}<section class="panel"><span class="eyebrow">DIRECTORY</span><h2>Student Records</h2><p>Fictional sample student records</p>
+{% for s in students %}<article class="student-row"><div><strong>{{ s.full_name }}</strong><small>{{ s.student_id }} · {{ s.classroom }}</small></div><span class="status">{{ s.status }}</span></article>{% else %}<p>No sample records yet.</p>{% endfor %}
+</section>{% endblock %}

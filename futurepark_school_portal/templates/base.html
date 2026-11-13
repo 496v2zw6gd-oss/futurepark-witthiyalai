@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Rongrien Futurepark Witthiyalai{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="hero">
+  <div class="brand">
+    <div class="crest">FP<small>FUTUREPARK</small></div>
+    <div><h1>Rongrien Futurepark Witthiyalai</h1><p>โรงเรียนฟิวเจอร์พาร์ควิทยาลัย</p><span>KNOWLEDGE · MORALITY · A BETTER TOMORROW</span></div>
+  </div>
+  <div class="hero-note">SCHOOL INFORMATION SYSTEM <span>● ONLINE</span></div>
+</header>
+<nav>
+  <a href="{{ url_for('home') }}">Home</a><a href="{{ url_for('search') }}">Student Search</a>
+  <a href="{{ url_for('students') }}">Students</a><a href="{{ url_for('login') }}">Administrator</a>
+  {% if is_admin %}<a href="{{ url_for('admin') }}">Dashboard</a>{% endif %}
+</nav>
+<main>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}<section class="messages">{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</section>{% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</main>
+<footer><strong>Rongrien Futurepark Witthiyalai</strong><br>Fictional school website created for a series · Academic Year 2026</footer>
+</body></html>

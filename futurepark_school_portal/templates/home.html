@@ -1,0 +1,18 @@
+{% extends "base.html" %}{% block title %}Home | Futurepark Witthiyalai{% endblock %}
+{% block content %}
+<section class="welcome">
+  <div><span class="eyebrow">WELCOME TO FUTUREPARK</span><h2>Learning today.<br>Leading tomorrow.</h2>
+  <p>ระบบสารสนเทศโรงเรียน · School Information System</p><a class="button" href="{{ url_for('search') }}">Search student records →</a></div>
+  <div class="campus-placeholder"><div class="campus-mark">FP</div><p>RONGRIEN FUTUREPARK<br>WITTHIYALAI</p></div>
+</section>
+<section class="stats">
+  <article><b>{{ student_count }}</b><span>Sample student records</span></article>
+  <article><b>42</b><span>Classrooms · Fictional</span></article>
+  <article><b>68</b><span>Teachers · Fictional</span></article>
+  <article><b>2026</b><span>Academic year</span></article>
+</section>
+<section class="panel"><h2>Quick access</h2><div class="quick">
+<a href="{{ url_for('search') }}">⌕ Search Student Records</a><a href="{{ url_for('students') }}">♙ Student Directory</a><a href="{{ url_for('login') }}">▣ Administrator Portal</a>
+</div></section>
+<p class="disclaimer">This is a fictional prop website. All directory entries are sample records, not real school records.</p>
+{% endblock %}
